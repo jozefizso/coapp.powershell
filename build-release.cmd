@@ -5,13 +5,13 @@ cd %~dp0
 set TOOLSDIR=%~dp0\tools
 
 :: Scrub the output directories clea
-msbuild /t:Clean ClrPlus.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.5 || goto failed
+msbuild /t:Clean CoApp.Powershell.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.5 || goto failed
 
 rmdir /s /q output\v45
 rmdir /s /q intermediate\v45
 
 :: Build .NET 4.0 and 4.5 versions
-msbuild /t:Rebuild ClrPlus.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.5 || goto failed
+msbuild /t:Rebuild CoApp.Powershell.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.5 || goto failed
 
 :: Do merges for monolithic packages
 echo Merging Monolithic builds for .NET 4.5

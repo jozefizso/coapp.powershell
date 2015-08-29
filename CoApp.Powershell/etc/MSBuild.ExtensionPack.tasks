@@ -6,7 +6,7 @@
     <CoAppEtcDirectory >$(MSBuildThisFileDirectory)</CoAppEtcDirectory>
     <MSBuildExtensionPackDll>$(ExtensionTasksPath)MSBuild.ExtensionPack.dll</MSBuildExtensionPackDll>
     <MSBuildExtensionPackGitDll>$(ExtensionTasksPath)MSBuild.ExtensionPack.Git.dll</MSBuildExtensionPackGitDll>
-    <CoAppExtensionPackDll>$(ExtensionTasksPath)ClrPlus.Scripting.MsBuild.dll</CoAppExtensionPackDll>
+    <CoAppExtensionPackDll>$(ExtensionTasksPath)CoApp.Powershell.Tools.dll</CoAppExtensionPackDll>
   </PropertyGroup>
   <Target Name="VC_V140_X64">
     <GetEnvironmentFromBatchFile BatchFile="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" Parameters="amd64" />
