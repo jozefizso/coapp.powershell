@@ -153,11 +153,9 @@ namespace ClrPlus.Scripting.MsBuild.Building.Tasks {
             if (!ValidateParameters()) {
                 return false;
             }
-
             if (skip) {
                 return true;
             }
-
             _builds.Add(this);
 
             Task.Factory.StartNew(ExecuteTool, cancellationTokenSource.Token, TaskCreationOptions.LongRunning, Scheduler);
@@ -253,7 +251,7 @@ namespace ClrPlus.Scripting.MsBuild.Building.Tasks {
                 if (StartMessage.Is()) {
                     Messages.Enqueue( new BuildMessage( StartMessage));
                 }
-
+                
                 Guid iid = Guid.NewGuid();
                 string pipeName = @"\pipe\ptk_{0}_{1}".format(Process.GetCurrentProcess().Id, Index);
                 Result = true;

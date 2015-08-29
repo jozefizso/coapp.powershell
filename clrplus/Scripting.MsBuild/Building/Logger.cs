@@ -103,6 +103,12 @@ namespace ClrPlus.Scripting.MsBuild.Building {
             Message = message;
         }
 
+        public BuildMessage()
+        {
+            EventType = string.Empty;
+            Message = "";
+        }
+
 
         public BuildMessage(BuildWarningEventArgs args) {
             EventType = args.GetType().Name.Replace("EventArgs", "");

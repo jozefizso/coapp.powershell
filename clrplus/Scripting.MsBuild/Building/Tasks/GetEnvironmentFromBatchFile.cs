@@ -32,7 +32,6 @@ namespace ClrPlus.Scripting.MsBuild.Building.Tasks {
                 if (!File.Exists(BatchFile.ItemSpec)) {
                     return false;
                 }
-
                 var args = @"/c ""{0}"" {1} & set ".format(BatchFile.ItemSpec, Parameters.Select(each => each.ItemSpec).Aggregate((cur, each) => cur + @" ".format(each)));
 
                 var proc = AsyncProcess.Start(
@@ -54,7 +53,6 @@ namespace ClrPlus.Scripting.MsBuild.Building.Tasks {
                         Environment.SetEnvironmentVariable(key, val);
                     }
                 }
-
                 return true;
             } catch (Exception e) {
                 Console.WriteLine("{0},{1},{2}", e.GetType().Name, e.Message, e.StackTrace);

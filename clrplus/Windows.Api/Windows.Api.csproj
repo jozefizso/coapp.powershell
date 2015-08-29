@@ -14,6 +14,8 @@
     <SolutionDir Condition="($(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*' ) AND exists('$(MsBuildThisFileDirectory)..\ClrPlus.sln')">$(MsBuildThisFileDirectory)..\</SolutionDir>
     <SolutionPath Condition="($(SolutionPath) == '' Or $(SolutionPath) == '*Undefined*' ) and exists('$(SolutionDir)\CoApp.Powershell.sln')">$(SolutionDir)\CoApp.Powershell.sln</SolutionPath>
     <SolutionPath Condition="($(SolutionPath) == '' Or $(SolutionPath) == '*Undefined*' ) and exists('$(SolutionDir)\ClrPlus.sln')">$(SolutionDir)\ClrPlus.sln</SolutionPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <Import Project="$(SolutionPath).props" Condition="Exists('$(SolutionPath).props')" />
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -25,6 +27,7 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>1591</NoWarn>
     <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,6 +35,7 @@
     <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

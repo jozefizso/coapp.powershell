@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" InitialTargets="InitPTK" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" InitialTargets="InitPTK" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildProjectDirectory)\$(MSBuildProjectName).guid" Condition="Exists('$(MSBuildProjectDirectory)\$(MSBuildProjectName).guid')" />
   <Import Project="$(CoAppEtcDirectory)MSBuild.ExtensionPack.tasks" />
   <Import Project="$(MSBuildProjectDirectory)\dependencies.props" Condition="exists('$(MSBuildProjectDirectory)\dependencies.props')"/>
@@ -40,7 +40,7 @@
    
     <ItemGroup>
       <ProjectGuidTemplate Include="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;"/>
-      <ProjectGuidTemplate Include="&lt;Project ToolsVersion=&quot;4.0&quot; xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;&gt;"/>
+      <ProjectGuidTemplate Include="&lt;Project ToolsVersion=&quot;14.0&quot; xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;&gt;"/>
       <ProjectGuidTemplate Include="&lt;PropertyGroup Label=&quot;Globals&quot;&gt;"/>
       <ProjectGuidTemplate Include="&lt;ProjectGuid&gt;$(ProjectGuid)&lt;/ProjectGuid&gt;"/>
       <ProjectGuidTemplate Include="&lt;/PropertyGroup&gt;"/>

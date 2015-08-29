@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project InitialTargets="Info" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project InitialTargets="Info" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Condition="$(HAS_COMMON_VARIABLES) != 'true' AND Exists('$(registry:HKEY_LOCAL_MACHINE\Software\Outercurve\CoApp.Powershell\etc)\common-variables.vcxproj')" Project="$(registry:HKEY_LOCAL_MACHINE\Software\Outercurve\CoApp.Powershell\etc)\common-variables.vcxproj" />
   
   <PropertyGroup>

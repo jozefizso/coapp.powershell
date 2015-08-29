@@ -16,6 +16,7 @@
     <SolutionPath Condition="($(SolutionPath) == '' Or $(SolutionPath) == '*Undefined*' ) and exists('$(SolutionDir)\ClrPlus.sln')">$(SolutionDir)\ClrPlus.sln</SolutionPath>
     <TargetFrameworkProfile />
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <Import Project="$(SolutionPath).props" Condition="Exists('$(SolutionPath).props')" />
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

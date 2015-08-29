@@ -15,6 +15,8 @@
     <SolutionPath Condition="($(SolutionPath) == '' Or $(SolutionPath) == '*Undefined*' ) and exists('$(SolutionDir)\CoApp.Powershell.sln')">$(SolutionDir)\CoApp.Powershell.sln</SolutionPath>
     <SolutionPath Condition="($(SolutionPath) == '' Or $(SolutionPath) == '*Undefined*' ) and exists('$(SolutionDir)\ClrPlus.sln')">$(SolutionDir)\ClrPlus.sln</SolutionPath>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <Import Project="$(SolutionPath).props" Condition="Exists('$(SolutionPath).props')" />
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -25,6 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,6 +35,7 @@
     <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Threading.Tasks">
