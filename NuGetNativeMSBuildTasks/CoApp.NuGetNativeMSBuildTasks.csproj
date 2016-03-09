@@ -52,6 +52,7 @@
     <Compile Include="AsyncProcess.cs" />
     <Compile Include="CheckRuntimeLibrary.cs" />
     <Compile Include="MsBuildTaskBase.cs" />
+    <Compile Include="SemaphoreTasks.cs" />
     <Compile Include="NuGetPackageOverlay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="$(SolutionDir)\common\AssemblyStrongName.cs" />
