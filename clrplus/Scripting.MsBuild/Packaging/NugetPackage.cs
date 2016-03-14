@@ -112,7 +112,6 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
             Props = new Lazy<ProjectPlus>(() => new ProjectPlus(this, "{0}.props".format(_pkgName)));
             Targets = new Lazy<ProjectPlus>(() => new ProjectPlus(this, "{0}.targets".format(_pkgName)));
 
-            // ***************** VisionMap Custom Modification ***********************************
             // Acquire semaphore because executing any tasks in the AfterBuild step of the package.
             // This prevents errors when multiple consumers of the package try to copy package
             // redistributables to the same destination. (see release in the Save method)
@@ -121,7 +120,6 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
                 semaphore.SetParameter("Name", "Sync_AfterBuild_" + _pkgName);
                 semaphore.AddOutputProperty("Handle", "SemaphoreHandle");
             }
-            // ***********************************************************************************
 
             _nuSpec.metadata.id = "Package";
             _nuSpec.metadata.version = "1.0.0";
@@ -381,12 +379,10 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
                 prop = pg.AddProperty("NugetMsBuildExtensionLoaded", "true");
                 prop.Condition = "'$(NugetMsBuildExtensionLoaded)' == '' OR '$(NuGet-OverlayLoaded)' == 'false'";
 
-                // ***************** VisionMap Custom Modification ***********************************
                 // Release the semaphore after executing all tasks in the AfterBuild step of the package.
                 // (see acquisition in the ctor)
                 var semaphore = Targets.Value.LookupTarget("AfterBuild").AddTask("ReleaseSemaphore");
                 semaphore.SetParameter("Handle", "$(SemaphoreHandle)");
-                // ***********************************************************************************
 
                 // then add the NuGetPackageOverlay tasks into the init target 
                 // var task = Targets.Value.LookupTarget("BeforeBuild").AddTask("CheckRuntimeLibrary");
