@@ -185,7 +185,6 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
 
         private IEnumerable<ToRoute> ImportGroupChildren {
             get {
-                // ********** Note: Implemented by VisionMap *************************
                 yield return "".MapTo<ProjectImportGroupElement>((parent, view) =>
                 {
                     return new ListWithAction<string>(s =>
@@ -194,7 +193,6 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
                         parent.AddImport(s);
                     });
                 });
-                // *******************************************************************
             }
         }
 
