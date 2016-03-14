@@ -185,7 +185,14 @@ namespace ClrPlus.Scripting.MsBuild.Packaging {
 
         private IEnumerable<ToRoute> ImportGroupChildren {
             get {
-                yield break;
+                yield return "".MapTo<ProjectImportGroupElement>((parent, view) =>
+                {
+                    return new ListWithAction<string>(s =>
+                    {
+                        // when an item is added
+                        parent.AddImport(s);
+                    });
+                });
             }
         }
 

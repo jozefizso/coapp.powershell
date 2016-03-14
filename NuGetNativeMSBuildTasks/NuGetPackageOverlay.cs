@@ -18,6 +18,7 @@ namespace CoApp.NuGetNativeMSBuildTasks {
     using System.Reflection;
     using System.Runtime.InteropServices;
     using System.Security.Policy;
+    using System.Threading;
     using Microsoft.Build.Framework;
 
     [Flags]
@@ -306,12 +307,17 @@ namespace CoApp.NuGetNativeMSBuildTasks {
             // is the overlay package installed?
             var expectedFile = Path.Combine(PackageDirectory, string.Format("{0}.{1}.nupkg", Package, Version ));
 
-            if (File.Exists(expectedFile)) {
-                // yes, return success.
-                return true;
-            }
+            Mutex mutex = null;
             var nugetExtensionsPath = Environment.GetEnvironmentVariable("NUGET_EXTENSIONS_PATH");
             try {
+                mutex = new Mutex(false, "CoApp_Overlay_" + Package + "_" + Version);
+                mutex.WaitOne();
+
+                if (File.Exists(expectedFile)) {
+                    // yes, return success.
+                    return true;
+                }
+
                 // nope, not yet.
 
                 if (string.IsNullOrEmpty(SolutionDirectory) || !Directory.Exists(SolutionDirectory)) {
@@ -368,6 +374,8 @@ namespace CoApp.NuGetNativeMSBuildTasks {
 
                 return true;
             } finally {
+                if (mutex != null)
+                    mutex.ReleaseMutex();
                 Environment.SetEnvironmentVariable("NUGET_EXTENSIONS_PATH", nugetExtensionsPath);
             }
             // return false;
